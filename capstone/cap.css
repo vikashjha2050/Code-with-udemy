@@ -1,0 +1,23 @@
+body
+{
+  color:white;
+  background-color: blue;
+  border: 20px solid green;
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+  border-top: 0px;
+  margin: 0px;
+}
+
+p
+{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#in1
+{
+  background-color: yellow;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
