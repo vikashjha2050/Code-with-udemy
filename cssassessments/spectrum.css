@@ -1,0 +1,41 @@
+body
+{
+  background-color:"red";
+}
+h1{
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+#tbid
+{
+  margin: auto;
+}
+
+th
+{
+width: 150px;
+height: 250px;
+margin: auto;
+}
+
+#first
+{
+  background-color: green;
+
+}
+#second
+{
+  background-color: red;
+}
+#third
+{
+  background-color: blue;
+}
+#fourth
+{
+  background-color: yellow;
+}
+#fifth
+{
+  background-color: brown;
+}
