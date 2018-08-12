@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>template inheritance</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Inheritance page</h1>
+      <h2>Data is inherited from block1 of user.html</h2>
+    </div>
+
+    {% extends 'user.html' %}
+    {% block block1 %}
+    {% endblock %}
+</body>
+</html>
