@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CBV List</title>
+  </head>
+  <body>
+    <h1>cbv ListView</h1>
+{% for s in school_list %}
+<h2> <a href="{{ s.id }}">{{s.scname}}</a></h2>
+  {% endfor%}
+  {{school_list.scname}}
+  </body>
+</html>

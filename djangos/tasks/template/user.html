@@ -1,0 +1,41 @@
+
+<html>
+<head>
+  <title>Modal view template</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container">
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+      <li><a class="navbar-brand" href="#">Home</a></li>
+      <li><a class="navbar-link" href="#">Page 1</a></li>
+      <li><a class="navbar-link" href="#">Page 2</a></li>
+      <li><a class="navbar-link" href="#">Page 3</a></li>
+    </ul>
+</nav>
+
+<h1>User page</h1>
+<table>
+<thead>
+<th>firstname </th>
+<th>lastname </th>
+<th>email</th>
+</thead>
+{% for acc in usersm %}
+<tr>
+<td>{{acc.firstname }}</td>
+<td>{{acc.lastname }}</td>
+<td>{{acc.email}}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="container">
+{% block block1 %}
+{% endblock %}
+</div>
+</body>
+</html>
