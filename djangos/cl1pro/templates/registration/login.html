@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block block1 %}
+<div class="jumbotron">
+
+<form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name="" value="Login" />
+  <input type="hidden" name="next" value="{{ next }}" />
+
+</form>
+
+</div>
+
+{% endblock %}

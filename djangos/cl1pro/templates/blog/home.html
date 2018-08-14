@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block block1 %}
+<div class="container">
+
+<div class="jumbotron">
+  {% for s in blog_list %}
+  <h2> <a href="{% url 'detail' pk=s.pk %}">{{s.title}}</a></h2>
+  <p>{{s.published_date}}</p>
+<p>Comments: {{s.approve_comments.count }}</p>
+    {% endfor%}
+</div>
+</div>
+
+{% endblock %}

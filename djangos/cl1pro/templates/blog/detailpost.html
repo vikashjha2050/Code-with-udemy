@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block block1 %}
+<div class="container">
+<div class="jumbotron">
+  {% if post_details.published_date %}
+  <p>{{post_details.title}}</p>
+  <p>{{ post_details.published_date }}</p>
+  <p>{{post_details.author}}</p>
+  <p>{{post_details.text}}</p>
+        {% else %}
+        <form action="{% url 'publish' pk=post_details.pk %}" method="post">
+          {% csrf_token %}
+          <input type="submit" name="" value="Publish" />
+        </form>
+        {% endif %}
+
+</div>
+
+{% if user.is_authenticated %}
+ <a class="btn btn-primary" href=" {% url 'update' pk=post_details.pk %}">update</a>
+ <a class="btn btn-primary" href=" {% url 'delete' pk=post_details.pk %}">Delete</a>
+{% endif %}
+<a class="btn btn-primary btn-comment" href=" {% url 'add_comment' pk=post_details.pk %}">Add comment</a> 
+
+{% for st in post_details.comments.all %}
+{% if user.is_authenticated or st.approved %}
+<h4>{{ st.author }}</h3>
+  <p>{{st.text}}</p>
+  {% if not st.approved %}
+  <p> <a href=" {% url 'approve_comment' pk=st.pk %}">Approve comment</a> </p>
+  <p> <a href=" {% url 'delete_comment' pk=st.pk %}">Delete comment</a> </p>
+  {% endif %}
+  {% endif %}
+{% endfor%}
+
+</div>
+{% endblock %}
