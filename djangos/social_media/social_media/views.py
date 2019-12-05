@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from posts.models import post
-from groups.models import group, group_members
+from groups.models import group
 
 class home_fun(ListView):
      model=post
@@ -13,5 +13,5 @@ class my_profile(ListView):
      model=post
      template_name='user.html'
      def get_queryset(self):
-        print post.objects.filter(user=self.request.user)
+        print(post.objects.filter(user=self.request.user))
         return post.objects.filter(user=self.request.user)
