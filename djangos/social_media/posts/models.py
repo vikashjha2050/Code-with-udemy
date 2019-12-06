@@ -11,8 +11,8 @@ User = get_user_model()
 
 class post(models.Model):
     postcontent=models.CharField(max_length=1000)
-    groupname=models.ForeignKey(group,related_name='posts')
-    user=models.ForeignKey(User,related_name='posts')
+    groupname=models.ForeignKey(group,related_name='posts', on_delete=models.PROTECT)
+    user=models.ForeignKey(User,related_name='posts', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.postcontent

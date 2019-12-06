@@ -9,14 +9,14 @@ user = get_user_model()
 class group(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField(null=True)
-    members=models.ManyToManyField(user,through='group_members')
+    members=models.ManyToManyField(user)
 
     def __str__(self):
         return self.name
 
-class group_members(models.Model):
-    group1=models.ForeignKey(group)
-    member1=models.ForeignKey(user,related_name='group_member')
+# class group_members(models.Model):
+#     group1=models.ForeignKey(group)
+#     member1=models.ForeignKey(user,related_name='group_member')
 
-    def __str__(self):
-        return self.member1.username
+#     def __str__(self):
+#         return self.member1.username
