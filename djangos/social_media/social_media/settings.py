@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'posts',
-    'topic'
+    'groups'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'social_media.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'',
+        'PORT':'',
+        'NAME': 'social_media',
+        'USER' : 'root',
+        'PASSWORD' : 'password',
+        'default-character-set' : 'utf8',
     }
 }
 

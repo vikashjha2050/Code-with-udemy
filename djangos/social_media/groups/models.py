@@ -14,9 +14,9 @@ class group(models.Model):
     def __str__(self):
         return self.name
 
-class group_members(models.Model):
-    group1=models.ForeignKey(group, on_delete=models.PROTECT)
-    member1=models.ForeignKey(user,related_name='group_member', on_delete=models.PROTECT)
+# class group_members(models.Model):
+#     group1=models.ForeignKey(group, on_delete=models.PROTECT)
+#     member1=models.ForeignKey(user,related_name='group_member', on_delete=models.PROTECT)
 
-    def __str__(self):
-        return self.member1.username
+#     def __str__(self):
+#         return self.member1.username

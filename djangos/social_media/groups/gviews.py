@@ -23,12 +23,13 @@ class group_detail(DetailView):
 
 def group_join(requests,pk):
     group2 = get_object_or_404(models.group,pk=pk)
-    models.group_members.objects.create(member1=requests.user,group1=group2)
+    group2.members.add(requests.user)
+    # models.group_members.objects.create(member1=requests.user,group1=group2)
     return redirect('group_detail', pk=pk)
 
 def group_leave(requests,pk):
     group2 = get_object_or_404(models.group,pk=pk)
-    gm1=models.group_members.objects.get(member1=requests.user,group1=group2)
-    print(gm1)
-    gm1.delete()
+    group2.remove(requests.user)
+    # gm1=models.group_members.objects.get(member1=requests.user,group1=group2)
+    # gm1.delete()
     return redirect('group_detail', pk=pk)

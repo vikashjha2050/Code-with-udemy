@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from topic.models import Topic
+from groups.models import group
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -11,7 +11,7 @@ User = get_user_model()
 
 class post(models.Model):
     postcontent=models.CharField(max_length=1000)
-    groupname=models.ForeignKey(Topic, related_name='posts', on_delete=models.PROTECT)
+    groupname=models.ForeignKey(group, related_name='posts', on_delete=models.PROTECT)
     user=models.ForeignKey(User,related_name='posts', on_delete=models.PROTECT)
 
     def __str__(self):
