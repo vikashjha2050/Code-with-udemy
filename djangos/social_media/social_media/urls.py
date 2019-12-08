@@ -18,7 +18,7 @@ from django.contrib import admin
 from social_media import views
 from accounts import acviews
 from django.contrib.auth import views as auth_views
-# from topic.views import gviews
+from groups import gviews
 from posts.poviews import create_post
 
 urlpatterns = [
@@ -29,11 +29,11 @@ urlpatterns = [
     url(r"login/$", auth_views.LoginView.as_view(template_name="accounts/login.html"),name='login'),
     url(r"logout/$", auth_views.LogoutView.as_view(), name="logout"),
     url(r"thanks/$", acviews.thanks.as_view(), name="thanks"),
-    # url(r'^create_group/$',gviews.create_group.as_view(),name='create_group' ),
-    # url(r'^groups_list/$',gviews.groups_list.as_view(),name='groups_list' ),
-    # url(r'^group_detail/(?P<pk>\d+)/$',gviews.group_detail.as_view(),name='group_detail' ),
-    # url(r'^group_detail/(?P<pk>\d+)/join$',gviews.group_join,name='group_join' ),
-    # url(r'^group_detail/(?P<pk>\d+)/leave$',gviews.group_leave,name='group_leave' ),
+    url(r'^create_group/$',gviews.create_group.as_view(),name='create_group' ),
+    url(r'^groups-list$',gviews.groups_list.as_view(),name='groups_list' ),
+    url(r'^group_detail/(?P<pk>\d+)/$',gviews.group_detail.as_view(),name='group_detail' ),
+    url(r'^group_detail/(?P<pk>\d+)/join$',gviews.group_join,name='group_join' ),
+    url(r'^group_detail/(?P<pk>\d+)/leave$',gviews.group_leave,name='group_leave' ),
     url(r'^create_post/$',create_post,name='create_post' ),
 
 

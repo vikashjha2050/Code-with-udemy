@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block block1 %}
-<div class="container">
+	<div class="container">
 
-<div class="jumbotron">
-{% for posts in post_list %}
-<a href="#">{{ posts.user }}</a>
-<p>{{ posts.postcontent }}</p>
-{% endfor %}
-</div>
+		<div class="jumbotron">
+			{% for posts in post_list %}
+				<a href="#">{{ posts.user }}</a>
+				<p>{{ posts.postcontent }}</p>
+			{% endfor %}
+		</div>
 
 </div>
 {% endblock %}

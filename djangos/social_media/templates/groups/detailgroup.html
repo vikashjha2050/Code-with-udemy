@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
+
 {% block block1 %}
-<div class="container">
-<div class="jumbotron">
+	<div class="container">
+		<div class="jumbotron">
 
-<a href="{% url 'group_detail' pk=group_details.pk %}"><h2>{{ group_details.name }}</h2></a>
-<p>{{ group_details.description }}</p>
-<p>Members count:{{ group_details.members.count }}</p>
-<p>posts count:{{ group_details.posts.count }}</p>
+			<a href="{% url 'group_detail' pk=group_details.pk %}"><h2>{{ group_details.name }}</h2></a>
+			<p>{{ group_details.description }}</p>
+			<p>Members count:{{ group_details.members.count }}</p>
+			<p>posts count:{{ group_details.posts.count }}</p>
 
-{% if user in group_details.members.all %}
-<a href="{% url 'group_leave' pk=group_details.pk %}" > Leave group</a>
-{% else %}
-<a href="{% url 'group_join' pk=group_details.pk %}" > Join group</a>
-{% endif %}
+			{% if user in group_details.members.all %}
+				<a href="{% url 'group_leave' pk=group_details.pk %}" > Leave group</a>
+			{% else %}
+				<a href="{% url 'group_join' pk=group_details.pk %}" > Join group</a>
+			{% endif %}
 
-</div>
+		</div>
 
-{% for posts in group_details.posts.all %}
-<div class="jumbotron">
-<a href="#">{{ posts.user }}</a>
-<p>{{ posts.postcontent }}</p>
-</div>
-{% endfor %}
-</div>
+		{% for posts in group_details.posts.all %}
+			<div class="jumbotron">
+			<a href="#">{{ posts.user }}</a>
+			<p>{{ posts.postcontent }}</p>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

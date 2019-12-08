@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block block1 %}
-<div class="container">
-{% for i in group_list %}
-<a href="{% url 'group_detail' pk=i.pk %}"><h2>{{ i.name }}</h2></a>
-<p>{{ i.description }}</p>
-<p>Members count:{{ i.members.count }}</p>
-<p>Posts count:{{ i.posts.count }}</p>
+	<div class="container">
+		{% for i in group_list %}
+			<a href="{% url 'group_detail' pk=i.pk %}"><h2>{{ i.name }}</h2></a>
+			<p>{{ i.description }}</p>
+			<p>Members count:{{ i.members.count }}</p>
+			<p>Posts count:{{ i.posts.count }}</p>
 
-{% endfor %}
-</div>
+		{% endfor %}
+	</div>
 {% endblock%}

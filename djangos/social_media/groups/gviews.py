@@ -8,28 +8,27 @@ from django.shortcuts import get_object_or_404, redirect
 # Create your views here.
 
 class create_group(CreateView):
-    model=models.group
+    model=models.Group
     fields={'name','description'}
-    success_url='/'
+    success_url='/groups-list'
 
 class groups_list(ListView):
-    model=models.group
+    model=models.Group
     template_name='groups/group_list.html'
 
 class group_detail(DetailView):
     context_object_name = 'group_details'
-    model=models.group
+    model=models.Group
     template_name='groups/detailgroup.html'
 
 def group_join(requests,pk):
-    group2 = get_object_or_404(models.group,pk=pk)
+    group2 = get_object_or_404(models.Group,pk=pk)
+    print(requests.user)
     group2.members.add(requests.user)
-    # models.group_members.objects.create(member1=requests.user,group1=group2)
     return redirect('group_detail', pk=pk)
 
 def group_leave(requests,pk):
-    group2 = get_object_or_404(models.group,pk=pk)
-    group2.remove(requests.user)
-    # gm1=models.group_members.objects.get(member1=requests.user,group1=group2)
-    # gm1.delete()
+    group2 = get_object_or_404(models.Group,pk=pk)
+    group2.members.remove(requests.user)
+    print(requests.user, type(requests.user))
     return redirect('group_detail', pk=pk)

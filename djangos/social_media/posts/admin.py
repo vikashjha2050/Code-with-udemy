@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from  posts.models import post
+from  posts.models import Post
 # Register your models here.
 
-admin.site.register(post)
+admin.site.register(Post)

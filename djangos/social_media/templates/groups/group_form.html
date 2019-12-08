@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
 
 {% block block1%}
-<div class="container">
+	<div class="container">
+		<form method="post">
+		    {% csrf_token %}
+		    {{ form.name.label }}
+		    {{ form.name }}
 
-<form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" name="" value="Create group">
-</form>
-</div>
+		    {{ form.description.label }}
+		    {{ form.description }}
+		    <input type="submit" name="" value="Create group">
+		</form>
+	</div>
 {% endblock %}

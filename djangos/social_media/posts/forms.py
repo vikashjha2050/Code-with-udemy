@@ -1,9 +1,9 @@
 from django import forms
-from posts.models import post
+from posts.models import Post
 
 class PostForm(forms.ModelForm):
 
     class Meta:
-        model = post
+        model = Post
         fields = ('groupname', 'postcontent','user')
         widgets = {'user': forms.HiddenInput()}

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.views.generic import CreateView
 from django.shortcuts import render, get_object_or_404,redirect
-from posts.models import post
+from posts.models import Post
 from posts.forms import PostForm
 from django.contrib.auth.models import User
 
@@ -14,7 +14,6 @@ def create_post(request):
 
     if request.method == "POST":
         form = PostForm(request.POST)
-        print(form)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = request.user
