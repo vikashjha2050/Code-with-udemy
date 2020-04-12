@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from social_media import views
+from social_media import views, api
 from accounts import acviews
 from django.contrib.auth import views as auth_views
 from groups import gviews
 from posts.poviews import create_post
+from rest_framework.routers import DefaultRouter
+from django.urls import include
+
+router = DefaultRouter()
+router.register(r'groupsapi', api.GroupViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,7 +40,7 @@ urlpatterns = [
     url(r'^group_detail/(?P<pk>\d+)/join$',gviews.group_join,name='group_join' ),
     url(r'^group_detail/(?P<pk>\d+)/leave$',gviews.group_leave,name='group_leave' ),
     url(r'^create_post/$',create_post,name='create_post' ),
-
+    url('', include(router.urls)),
 
 
 
