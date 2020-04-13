@@ -24,7 +24,7 @@ from rest_framework.routers import DefaultRouter
 from django.urls import include
 
 router = DefaultRouter()
-router.register(r'groupsapi', api.GroupViewSet)
+router.register(r'groupviewsetapi', api.GroupViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^group_detail/(?P<pk>\d+)/leave$',gviews.group_leave,name='group_leave' ),
     url(r'^create_post/$',create_post,name='create_post' ),
     url('', include(router.urls)),
-
+    url('groupviewsapi', api.GroupViews.as_view(), name='group-list-apiview' ),
 
 
 ]
