@@ -21,10 +21,10 @@ from django.contrib.auth import views as auth_views
 from groups import gviews
 from posts.poviews import create_post
 from rest_framework.routers import DefaultRouter
-from django.urls import include
+from django.urls import include, path
 
 router = DefaultRouter()
-router.register(r'groupviewsetapi', api.GroupViewSet)
+router.register(r'groupsapi', api.GroupViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -41,7 +41,8 @@ urlpatterns = [
     url(r'^group_detail/(?P<pk>\d+)/leave$',gviews.group_leave,name='group_leave' ),
     url(r'^create_post/$',create_post,name='create_post' ),
     url('', include(router.urls)),
-    url('groupviewsapi', api.GroupViews.as_view(), name='group-list-apiview' ),
+    path('groupapi/<pk>', api.GroupViews.as_view(), name='group-generic-apiview' ),
+    path('groupapi/<pk>', api.GroupGenericApi.as_view(), name='group-generic-apiview' ),
 
 
 ]
