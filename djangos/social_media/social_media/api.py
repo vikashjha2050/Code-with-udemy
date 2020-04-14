@@ -6,9 +6,6 @@ from django.http import Http404
 
 
 class GroupViewSet(viewsets.ModelViewSet):
-	"""
-	API endpoint that allows users to be viewed or edited.
-	"""
 	queryset = Group.objects.all()
 	serializer_class = GroupSerializer
 
@@ -22,6 +19,7 @@ class GroupViews(views.APIView):
 		return group
 
 	def get(self, request, pk, format=None):
+		print(request.query_params, '******get data********')
 		group = self.get_object(pk)
 		serializer = GroupSerializer(group)
 		return Response(serializer.data)
